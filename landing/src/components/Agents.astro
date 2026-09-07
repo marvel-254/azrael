@@ -1,0 +1,50 @@
+---
+const agents = [
+  'opencode',
+  'hermes',
+  'kilo-code',
+  'openclaw',
+  'goose',
+  'claude-code',
+  'openclaude',
+  'cline',
+  'freebuff',
+];
+---
+
+<section class="agents">
+  <p class="title">Supported harnesses</p>
+  <div class="strip">
+    {agents.map((a) => (
+      <span class="pill">{a}</span>
+    ))}
+  </div>
+</section>
+
+<style>
+  .agents {
+    margin: 4rem 0;
+    text-align: center;
+  }
+  .title {
+    color: var(--tick);
+    font-family: var(--font-display);
+    font-size: 14px;
+    margin: 0 0 1rem;
+    font-weight: 500;
+  }
+  .strip {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+  .pill {
+    border: 1px solid var(--wire);
+    color: var(--tick);
+    padding: 0.25rem 0.75rem;
+    font-family: var(--font-mono);
+    font-size: 13px;
+    background: transparent;
+  }
+</style>

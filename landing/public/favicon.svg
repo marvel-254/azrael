@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#1b1816"/>
+  <path d="M 6 22 A 10 10 0 1 1 26 22" fill="none" stroke="#e8c178" stroke-width="1" stroke-linecap="butt"/>
+  <line x1="6" y1="22" x2="7.5" y2="22" stroke="#e8c178" stroke-width="1.5"/>
+  <line x1="26" y1="22" x2="24.5" y2="22" stroke="#e8c178" stroke-width="1.5"/>
+  <line x1="9.5" y1="9.5" x2="10.7" y2="10.7" stroke="#e8c178" stroke-width="1.5"/>
+  <line x1="22.5" y1="9.5" x2="21.3" y2="10.7" stroke="#e8c178" stroke-width="1.5"/>
+  <line x1="16" y1="8" x2="16" y2="9.7" stroke="#e8c178" stroke-width="1.5"/>
+  <text x="16" y="25" text-anchor="middle" font-family="ui-monospace, monospace" font-weight="700" font-size="16" fill="#e8c178">A</text>
+</svg>

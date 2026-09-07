@@ -1,0 +1,156 @@
+---
+const pct = 37;
+const cx = 110;
+const cy = 110;
+const rOuter = 100;
+const rInner = 86;
+const rTickOuter = 92;
+const rTickMajorInner = 82;
+const rTickMinorInner = 87;
+const rNeedle = 74;
+const rHub = 6;
+
+// Sweep: 270° from -135° (bottom-left) to +135° (bottom-right).
+// Needle endpoint: angle = -135 + 2.7 * pct (degrees).
+const needleAngleDeg = -135 + 2.7 * pct;
+const needleAngleRad = (needleAngleDeg * Math.PI) / 180;
+const needleX = cx + rNeedle * Math.cos(needleAngleRad);
+const needleY = cy + rNeedle * Math.sin(needleAngleRad);
+
+// 12 major ticks + 60 minor ticks (5 per major span).
+const majorTicks: { x1: number; y1: number; x2: number; y2: number; label: number }[] = [];
+const minorTicks: { x1: number; y1: number; x2: number; y2: number }[] = [];
+for (let i = 0; i < 60; i++) {
+  const a = (-135 + (270 / 60) * i) * Math.PI / 180;
+  const isMajor = i % 5 === 0;
+  const rIn = isMajor ? rTickMajorInner : rTickMinorInner;
+  const rOut = rTickOuter;
+  const x1 = cx + rIn * Math.cos(a);
+  const y1 = cy + rIn * Math.sin(a);
+  const x2 = cx + rOut * Math.cos(a);
+  const y2 = cy + rOut * Math.sin(a);
+  if (isMajor) {
+    majorTicks.push({ x1, y1, x2, y2, label: i / 5 * 25 });
+  } else {
+    minorTicks.push({ x1, y1, x2, y2 });
+  }
+}
+
+// Warning arc in 90-100% range (last 10% of sweep, from 240° to 270° relative offset).
+const warnStartDeg = -135 + 2.7 * 90;
+const warnEndDeg = -135 + 2.7 * 100;
+const warnStartRad = (warnStartDeg * Math.PI) / 180;
+const warnEndRad = (warnEndDeg * Math.PI) / 180;
+const warnR = rTickOuter - 4;
+const warnX1 = cx + warnR * Math.cos(warnStartRad);
+const warnY1 = cy + warnR * Math.sin(warnStartRad);
+const warnX2 = cx + warnR * Math.cos(warnEndRad);
+const warnY2 = cy + warnR * Math.sin(warnEndRad);
+const warnArc = `M ${warnX1} ${warnY1} A ${warnR} ${warnR} 0 0 1 ${warnX2} ${warnY2}`;
+---
+
+<section class="hero">
+  <svg viewBox="0 0 220 220" width="220" height="220" role="img" aria-label="azrael gauge reading 37 percent">
+    <circle cx={cx} cy={cy} r={rOuter} fill="var(--bezel-edge)" stroke="var(--bezel)" stroke-width="2" />
+    <circle cx={cx} cy={cy} r={rInner} fill="var(--bg)" />
+    <path d={warnArc} fill="none" stroke="var(--needle-crit)" stroke-width="3" stroke-linecap="butt" opacity="0.08" />
+    {minorTicks.map((t) => (
+      <line x1={t.x1} y1={t.y1} x2={t.x2} y2={t.y2} stroke="var(--tick)" stroke-width="0.5" opacity="0.6" />
+    ))}
+    {majorTicks.map((t) => (
+      <line x1={t.x1} y1={t.y1} x2={t.x2} y2={t.y2} stroke="var(--tick)" stroke-width="1.5" />
+    ))}
+    <line
+      x1={cx}
+      y1={cy}
+      x2={needleX}
+      y2={needleY}
+      stroke="var(--needle)"
+      stroke-width="2"
+      stroke-linecap="round"
+      style="filter: drop-shadow(0 0 4px var(--needle-crit));"
+    />
+    <circle cx={cx} cy={cy} r={rHub} fill="var(--bezel-edge)" stroke="var(--bezel-edge)" stroke-width="1" />
+    <text x={cx - rOuter + 12} y={cy - rOuter + 22} fill="var(--tick)" font-family="var(--font-mono)" font-size="10" font-weight="500">SYSTEM</text>
+    <text x={cx + rOuter - 12} y={cy - rOuter + 22} fill="var(--readout)" font-family="var(--font-mono)" font-size="11" font-weight="700" text-anchor="end">{pct}%</text>
+  </svg>
+
+  <h1>azrael</h1>
+  <p class="tagline">A car dashboard for the AI agents running on your box. See every harness, cap the runaway, never lose the machine to a leak.</p>
+
+  <div class="ctas">
+    <a class="cta primary" href="https://github.com/marvel/azrael/releases">Get azrael</a>
+    <a class="cta secondary" href="https://github.com/marvel/azrael">View on GitHub</a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    text-align: center;
+    padding: 2rem 0 4rem;
+  }
+  .hero svg {
+    display: block;
+    margin: 0 auto 2rem;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: 56px;
+    font-weight: 500;
+    letter-spacing: -0.02em;
+    color: var(--readout);
+    margin: 0;
+  }
+  .tagline {
+    color: var(--tick);
+    font-size: 18px;
+    max-width: 540px;
+    margin: 1rem auto 0;
+    line-height: 1.5;
+  }
+  .ctas {
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    margin-top: 2.5rem;
+    flex-wrap: wrap;
+  }
+  .cta {
+    display: inline-block;
+    padding: 0.75rem 1.25rem;
+    font-weight: 600;
+    font-size: 15px;
+    font-family: var(--font-display);
+    border-radius: 0;
+  }
+  .cta.primary {
+    background: var(--needle);
+    color: var(--bezel-edge);
+    border: 1px solid var(--needle);
+  }
+  .cta.primary:hover {
+    color: var(--bezel-edge);
+    background: var(--readout);
+    border-color: var(--readout);
+  }
+  .cta.secondary {
+    background: transparent;
+    border: 1px solid var(--wire);
+    color: var(--readout);
+  }
+  .cta.secondary:hover {
+    color: var(--needle);
+    border-color: var(--needle);
+  }
+  @media (max-width: 600px) {
+    h1 {
+      font-size: 40px;
+    }
+    .tagline {
+      font-size: 16px;
+    }
+    .hero {
+      padding: 1rem 0 3rem;
+    }
+  }
+</style>

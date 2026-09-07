@@ -1,0 +1,77 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+}
+
+const {
+  title = 'azrael',
+  description = 'TUI + GUI monitor for AI agent harnesses',
+} = Astro.props;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} — azrael</title>
+    <meta name="description" content={description} />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <style is:global>
+      :root {
+        --bg: #1b1816;
+        --bezel: #2a2522;
+        --bezel-edge: #0e0c0b;
+        --tick: #b9a892;
+        --needle: #e8c178;
+        --needle-warn: #e8893c;
+        --needle-crit: #c63a3a;
+        --readout: #f5ead2;
+        --accent: #7fb88f;
+        --wire: #3a322d;
+        --font-display: ui-sans-serif, system-ui, -apple-system, "Inter", "Helvetica Neue", sans-serif;
+        --font-mono: ui-monospace, "JetBrains Mono", "Fira Code", "SFMono-Regular", monospace;
+      }
+      html, body {
+        background: var(--bg);
+        color: var(--readout);
+      }
+      body {
+        font-family: var(--font-display);
+        margin: 0;
+        line-height: 1.55;
+        -webkit-font-smoothing: antialiased;
+      }
+      a {
+        color: var(--needle);
+        text-decoration: none;
+      }
+      a:hover {
+        color: var(--readout);
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <slot />
+    </main>
+  </body>
+</html>
+
+<style>
+  main {
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem;
+  }
+  @media (max-width: 600px) {
+    main {
+      padding: 2.5rem 1rem;
+    }
+  }
+</style>

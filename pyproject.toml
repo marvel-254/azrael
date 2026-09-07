@@ -1,0 +1,89 @@
+[tool.poetry]
+name = "azrael"
+version = "0.1.0"
+description = "TUI + GUI monitor and resource controller for AI agent harnesses"
+authors = ["Marvel <noreply@marvel.local>"]
+license = "MIT"
+readme = "README.md"
+homepage = "https://github.com/marvel/azrael"
+repository = "https://github.com/marvel/azrael"
+documentation = "https://azrael.vercel.app"
+keywords = ["monitor", "cgroup", "tui", "gui", "agent", "opencode", "hermes", "goose"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Environment :: Console",
+    "Environment :: X11 Applications :: Qt",
+    "Intended Audience :: Developers",
+    "Intended Audience :: System Administrators",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: POSIX :: Linux",
+    "Operating System :: Microsoft :: Windows",
+    "Operating System :: MacOS",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: System :: Monitoring",
+    "Topic :: System :: Systems Administration",
+    "Typing :: Typed",
+]
+packages = [{ include = "azrael", from = "src" }]
+include = ["README.md", "LICENSE"]
+exclude = ["tests*", "landing*", ".github*"]
+
+[tool.poetry.scripts]
+azrael = "azrael.cli.main:main"
+azrael-gui = "azrael.gui.app:main"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+psutil = "^5.9.0"
+click = "^8.1.7"
+platformdirs = "^4.2.0"
+rich = "^13.7.0"
+textual = { version = "^0.79.0", optional = true }
+PySide6 = { version = "^6.6.0", optional = true }
+
+[tool.poetry.extras]
+tui = ["textual"]
+gui = ["PySide6"]
+all = ["textual", "PySide6"]
+
+[tool.poetry.group.dev.dependencies]
+pytest = "^8.0"
+pytest-cov = "^5.0"
+ruff = "^0.5.0"
+mypy = "^1.10"
+types-psutil = "^5.9.0"
+textual = "^0.79.0"
+freezegun = "^1.5.0"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
+extend-exclude = ["landing", "build", "dist"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "B", "UP", "N", "SIM", "RUF"]
+ignore = ["E501"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+files = ["src/azrael"]
+ignore_missing_imports = true
+warn_unused_ignores = true
+disallow_untyped_defs = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "-ra -q --strict-markers"
+markers = ["slow: marks tests as slow (deselect with -m 'not slow')"]

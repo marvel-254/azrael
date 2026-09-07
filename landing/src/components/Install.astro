@@ -1,0 +1,80 @@
+---
+const variants = [
+  {
+    heading: 'Recommended',
+    description: 'TUI + GUI, all agents detected automatically.',
+    command: 'pip install azrael[all]',
+  },
+  {
+    heading: 'Terminal only',
+    description: 'Just the dashboard in your shell.',
+    command: 'pip install azrael[tui]',
+  },
+  {
+    heading: 'Window only',
+    description: 'Qt car-dashboard app.',
+    command: 'pip install azrael[gui]',
+  },
+];
+---
+
+<section class="install">
+  {variants.map((v) => (
+    <div class="block">
+      <h3>{v.heading}</h3>
+      <p>{v.description}</p>
+      <pre><code>{v.command}</code></pre>
+    </div>
+  ))}
+</section>
+
+<style>
+  .install {
+    margin: 4rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .block {
+    display: flex;
+    flex-direction: column;
+  }
+  h3 {
+    color: var(--readout);
+    font-family: var(--font-display);
+    font-size: 15px;
+    font-weight: 600;
+    margin: 0 0 0.25rem;
+  }
+  p {
+    color: var(--tick);
+    font-family: var(--font-display);
+    font-size: 14px;
+    margin: 0 0 0.75rem;
+  }
+  pre {
+    background: var(--bezel);
+    color: var(--readout);
+    padding: 1rem 1.25rem;
+    border: 1px solid var(--bezel-edge);
+    overflow-x: auto;
+    margin: 0;
+    border-radius: 0;
+  }
+  code {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    background: transparent;
+  }
+  @media (max-width: 600px) {
+    .install {
+      margin: 3rem 0;
+    }
+    pre {
+      padding: 0.875rem 1rem;
+    }
+    code {
+      font-size: 13px;
+    }
+  }
+</style>

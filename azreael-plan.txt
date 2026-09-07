@@ -1,0 +1,10 @@
+this is azreal a tui and gui monitor for agentic harnesses like opencode hermes agent kilo-code openclaw goose claude code openclaude
+cline freebuff and others its job is to show the breakdown of ram and cpu usage per age
+nt and show the processes in detail ...i envision it to even better be used to
+limit or control the ram and cpu usage of these agent harnesses making it easier and solving the 
+issue of lagging or crashing of computers with minimal resources .. i am to make it a simple dashboard 
+like a car dashboard with meters and easy to interpret ,,..on first onboarding new users 
+will be asked to add azrael to their config files of their agents or simpler azreal auto detects avilable agents
+and auto installs on them sensors that monitor and allows users to reduce or limit resources per agent or universally 
+the theme and the looks on this dashboard should be simple the dashboard itself should be as lightwieght as possible and there should be a cli and
+a desktop app version for both linux and windows 

@@ -1,0 +1,73 @@
+---
+const features = [
+  {
+    title: 'Discovers every agent',
+    body: 'Walks cgroup v2 scopes and falls back to /proc cmdline matching. No agent is invisible.',
+  },
+  {
+    title: 'Reads the truth',
+    body: 'CPU% from cpu.stat deltas, memory from memory.current, throttle time, OOM events. No guessing.',
+  },
+  {
+    title: 'Shows it like a dashboard',
+    body: 'Analog gauges. Real needles. Tick marks. The way you read your car at a glance.',
+  },
+  {
+    title: 'Caps the runaway',
+    body: 'Per-agent cpu.weight, memory.max, memory.high. Renice the loose ones. Systemd-aware.',
+  },
+  {
+    title: 'Installs sensors',
+    body: 'Wrap unwrapped agents in a systemd --user scope with one command. Persistent or transient.',
+  },
+  {
+    title: 'Works everywhere you do',
+    body: 'Linux first. Windows via Job Objects. macOS monitor-only. TUI and GUI from one codebase.',
+  },
+];
+---
+
+<section class="features">
+  {features.map((f) => (
+    <article class="card">
+      <h3>{f.title}</h3>
+      <p>{f.body}</p>
+    </article>
+  ))}
+</section>
+
+<style>
+  .features {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 4rem 0;
+  }
+  .card {
+    border: 1px solid var(--wire);
+    border-left: 3px solid var(--needle);
+    padding: 1.5rem;
+    background: transparent;
+  }
+  h3 {
+    color: var(--readout);
+    font-family: var(--font-display);
+    font-size: 16px;
+    font-weight: 500;
+    margin: 0 0 0.5rem;
+    line-height: 1.4;
+  }
+  p {
+    color: var(--tick);
+    font-family: var(--font-display);
+    font-size: 14px;
+    margin: 0;
+    line-height: 1.55;
+  }
+  @media (max-width: 600px) {
+    .features {
+      grid-template-columns: 1fr;
+      margin: 3rem 0;
+    }
+  }
+</style>

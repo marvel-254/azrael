@@ -1,0 +1,57 @@
+# --- Python bytecode / cache ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+
+# --- Distribution / build artefacts ---
+*.egg-info/
+*.egg
+dist/
+build/
+.eggs/
+wheels/
+pip-wheel-metadata/
+
+# --- Test / coverage ---
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+.coverage.*
+htmlcov/
+.tox/
+.nox/
+coverage.xml
+*.cover
+.hypothesis/
+
+# --- Virtualenvs ---
+.venv/
+venv/
+env/
+ENV/
+
+# --- IDE ---
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# --- OS ---
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# --- PyInstaller ---
+*.spec.bak
+
+# --- Poetry ---
+# `poetry.lock` is INTENTIONALLY tracked for this project.
+# This is a CLI application, not a library — every downstream
+# install (pipx, pyinstaller, CI, dev environment) should resolve
+# the exact same dependency graph that the maintainers tested.
+# See https://pip.pypa.io/en/stable/topics/repeatable-installs/
+# for the library/lock guidance; for applications, the lock is
+# the contract.
