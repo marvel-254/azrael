@@ -1,5 +1,7 @@
 """Smoke test: the package imports and has a version."""
+
 from __future__ import annotations
+
 import azrael
 from azrael.version import __version__
 

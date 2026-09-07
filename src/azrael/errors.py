@@ -1,5 +1,7 @@
 """Scan agent log directories for recent error lines and summarize counts."""
+
 from __future__ import annotations
+
 from collections.abc import Iterable
 from dataclasses import dataclass
 from pathlib import Path

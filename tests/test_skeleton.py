@@ -1,7 +1,10 @@
 """Phase 0: ensure the public stubs are importable and self-describing."""
+
 from __future__ import annotations
+
 import pytest
-from azrael import errors, config
+
+from azrael import config, errors
 
 
 def test_errors_module_imports() -> None:
