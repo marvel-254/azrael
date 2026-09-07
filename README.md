@@ -22,7 +22,7 @@ azrael sits between you and the half-dozen AI agents you have running locally. I
 The package will be published to PyPI once v1 is tagged. For now, install from source with Poetry:
 
 ```bash
-git clone https://github.com/marvel/azrael
+git clone https://github.com/twistedoliver211fs-art/azrael
 cd azrael
 poetry install --all-extras        # TUI + GUI + dev deps
 poetry run azrael --help
@@ -106,6 +106,6 @@ MIT — see [LICENSE](LICENSE).
 
 ## Links
 
-- Landing page: <https://azrael.vercel.app>
-- Repository: <https://github.com/marvel/azrael>
+- Landing page: <https://azrael-landing-mlc8x85mg-twistedoliver211fs-1271.vercel.app>
+- Repository: <https://github.com/twistedoliver211fs-art/azrael>
 - Design plan: [PLAN.md](PLAN.md)

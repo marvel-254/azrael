@@ -967,7 +967,7 @@ All of these are concrete and ready to implement; nothing here is
 ### 17.1 Repository
 
 - **Host**: GitHub.
-- **Path**: `github.com/marvel/azrael` (public).
+- **Path**: `github.com/twistedoliver211fs-art/azrael` (public).
 - **License**: MIT (`LICENSE` at repo root, standard MIT template).
 - **Default branch**: `main`.
 - **Local directory** keeps the misspelling `azrael/` for historical
@@ -979,7 +979,7 @@ Run this **once**, from `/home/marvel/azrael/`, after the first commit
 exists locally:
 
 ```bash
-gh repo create marvel/azrael \
+gh repo create twistedoliver211fs-art/azrael \
     --public \
     --source=. \
     --remote=origin \
@@ -1109,7 +1109,7 @@ each, no matrix sprawl.
 
 | Surface         | Where                                                 |
 |-----------------|-------------------------------------------------------|
-| Source          | `github.com/marvel/azrael`                            |
+| Source          | `github.com/twistedoliver211fs-art/azrael`                            |
 | Pre-built bins  | GitHub Releases (5 OS/arch × 2 modes = 10 artifacts)  |
 | Landing page    | Vercel (URL printed by the first `landing.yml` run)   |
 | Docs site       | Same Astro project, `/docs` route, same palette      |

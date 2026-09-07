@@ -5,9 +5,9 @@ description = "TUI + GUI monitor and resource controller for AI agent harnesses"
 authors = ["Marvel <noreply@marvel.local>"]
 license = "MIT"
 readme = "README.md"
-homepage = "https://github.com/marvel/azrael"
-repository = "https://github.com/marvel/azrael"
-documentation = "https://azrael.vercel.app"
+homepage = "https://github.com/twistedoliver211fs-art/azrael"
+repository = "https://github.com/twistedoliver211fs-art/azrael"
+documentation = "https://azrael-landing-mlc8x85mg-twistedoliver211fs-1271.vercel.app"
 keywords = ["monitor", "cgroup", "tui", "gui", "agent", "opencode", "hermes", "goose"]
 classifiers = [
     "Development Status :: 3 - Alpha",

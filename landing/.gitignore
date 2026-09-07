@@ -6,3 +6,5 @@ dist/
 !.env.example
 npm-debug.log*
 yarn-error.log*
+.vercel
+.env*

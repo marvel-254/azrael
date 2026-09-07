@@ -1,6 +1,6 @@
 # azrael landing
 
-Static marketing site for [azrael](https://azrael.vercel.app) — a TUI + GUI monitor and resource controller for AI agent harnesses.
+Static marketing site for [azrael](https://azrael-landing-mlc8x85mg-twistedoliver211fs-1271.vercel.app) — a TUI + GUI monitor and resource controller for AI agent harnesses.
 
 ## Develop
 
@@ -18,4 +18,4 @@ npm run preview
 
 ## Deploy
 
-Pushed to `main` (with `landing/**` changes) by `.github/workflows/landing.yml` to Vercel at <https://azrael.vercel.app>.
+Pushed to `main` (with `landing/**` changes) by `.github/workflows/landing.yml` to Vercel at <https://azrael-landing-mlc8x85mg-twistedoliver211fs-1271.vercel.app>.
