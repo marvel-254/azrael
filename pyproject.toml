@@ -38,7 +38,7 @@ azrael-gui = "azrael.gui.app:main"
 [tool.poetry.dependencies]
 python = ">=3.11,<3.13"
 psutil = "^5.9.0"
-click = "^8.1.7"
+click = "^8.5.0"
 platformdirs = "^4.2.0"
 rich = "^13.7.0"
 textual = { version = "^0.79.0", optional = true }
