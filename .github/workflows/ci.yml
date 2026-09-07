@@ -14,25 +14,35 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name. Set up Python
+      - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
       - name: Install Poetry
-        run: pipx install poetry
+        run: curl -sSL https://install.python-poetry.org | python3 -
 
       - name: Install dependencies
-        run: poetry install --no-interaction --no-root
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          poetry install --no-interaction --all-extras
 
       - name: Run pytest
-        run: poetry run pytest tests/ --tb=short
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          poetry run pytest tests/ --tb=short
 
       - name: Run ruff check
-        run: poetry run ruff check src/azrael tests/
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          poetry run ruff check src/azrael tests/
 
       - name: Run ruff format
-        run: poetry run ruff format --check src/azrael tests/
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          poetry run ruff format --check src/azrael tests/
 
       - name: Run mypy
-        run: poetry run mypy src/azrael
+        run: |
+          export PATH="$HOME/.local/bin:$PATH"
+          poetry run mypy src/azrael
