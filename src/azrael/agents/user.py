@@ -79,7 +79,7 @@ def _as_opt_int(v: object) -> int | None:
         return None
     if isinstance(v, bool):
         return int(v)
-    if isinstance(v, (int, float)):
+    if isinstance(v, int | float):
         return int(v)
     return int(str(v))
 
