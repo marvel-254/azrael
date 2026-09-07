@@ -50,7 +50,7 @@ gui = ["PySide6"]
 all = ["textual", "PySide6"]
 
 [tool.poetry.group.dev.dependencies]
-pytest = "^8.0"
+pytest = "^9.1"
 pytest-cov = "^5.0"
 ruff = "^0.5.0"
 mypy = "^1.10"
